@@ -1,0 +1,156 @@
+package javaapplication4;
+import java.util.*;
+class person{
+    private String name,address;
+    public person(String name,String address)
+    {
+        this.name=name;
+        this.address=address;
+    }
+    public String getname()
+    {
+        return this.name;
+    }
+    public String getaddress()
+    {
+        return this.address;
+    }
+    public void  setaddress(String adres)
+    {
+        this.address=adres;
+    }
+    public String toString()
+    {
+        return ("preson:"+name+" "+"address:"+address+":");
+    }
+}
+class  student extends person{
+    private String program;
+    private int year;
+    private double fee;
+    public student(String name,String address,String program,int year,double fee)
+    {
+        super(name,address);
+        this.program=program;
+        this.fee=fee;
+        this.year=year;
+    }
+    public String getprogram()
+    {
+        return this.program;
+    }
+    public int getyear()
+    {
+        return this.year;
+    }
+     public double getfee()
+    {
+        return this.fee;
+    }
+  public String toString()
+    {
+        return ("student:"+super.toString()+"program:"+program+"year:"+year+"fee:"+fee+":");
+    }
+}
+class staff extends person{
+    private String school;
+    private double pay;
+    staff(String name,String address,String school,double pay)
+    {
+        super(name,address);
+        this.school=school;
+        this.pay=pay;
+    }
+    public String getschool()
+    {
+        return this.school;
+    }
+    public double getpay()
+    {
+        return this.pay;
+    }
+     public String toString()
+    {
+        return ("staff:"+super.toString()+"school:"+school+"pay:"+pay+":");
+    }
+}
+public class JavaApplication4 {
+
+   
+    public static void main(String[] args) {
+       student [] std=new student[2];
+       staff [] stf =new staff[2];
+      int i=0;
+      int j=0;
+       Scanner ss=new Scanner(System.in);
+       int key;
+     do  {System.out.println("press 1 for student entry,press 2 for staff entry,press 3 and 4 for search");
+        key=ss.nextInt();
+       if(key==1)
+       {
+           for( i=0;i<std.length;i++)
+           {
+               
+               System.out.println("enter name :");
+               String n=ss.next();
+               System.out.println("enter address :");
+               String ad=ss.next();
+               System.out.println("enter program :");
+               String pro=ss.next();
+               System.out.println("enter year :");
+               int yr=ss.nextInt();
+               System.out.println("enter fee :");
+               double fe=ss.nextDouble();
+               std[i]=new student(n,ad,pro,yr,fe);
+               System.out.println(std[i]);
+           }
+       }
+      else if(key==2)
+       {
+           for( j=0;j<stf.length;j++)
+           {
+               System.out.println("enter name :");
+               String n=ss.next();
+               System.out.println("enter address :");
+               String ad=ss.next();
+               System.out.println("enter school :");
+               String sh=ss.next();
+               System.out.println("enter pay :");
+               double py=ss.nextDouble();
+               stf[j]=new staff(n,ad,sh,py);
+               System.out.println(stf[j]);
+               
+           }
+           }
+      else if(key==3)
+       {
+           System.out.println("enter name :");
+               String n=ss.next();
+               for(int k=0;k<i+1;k++)
+               {
+                   if(n==std[j].getname());
+                   {
+                       System.out.println(std[j]);
+                       break;
+                   }
+               }
+       }
+      else if(key==4)
+      {
+          System.out.println("enter name :");
+          String n=ss.next();
+          for(int l=0;l<j+1;l++)
+               {
+                   if(n==stf[l].getname());
+                   {
+                       System.out.println(stf[l]);
+                       break;
+                   }
+      }
+       }
+       
+       }while(key<4);
+       
+    }
+}
+    

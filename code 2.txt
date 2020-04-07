@@ -1,0 +1,481 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication9
+{
+   
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+
+
+
+            int i = 0, j = 0;
+            string x;
+            x = System.IO.File.ReadAllText(@"C:\Users\BilalAhmed\Downloads\aaxr3-wm89b.txt");
+            //  Console.WriteLine(x);
+            string[] lines;
+            string[] nos;
+
+            lines = x.Split('\r');
+            int[,] n = new int[50, 12];
+            for (i = 0; i < lines.Length - 1; i++)
+            {
+                nos = lines[i].Split('\t');
+                for (j = 0; j < nos.Length; j++)
+                {
+                    Console.WriteLine(nos[j]);
+                    //n[i, j] = Convert.ToInt32(nos[j]);
+                    // Console.Write("{0} ", n[i, j]);
+                }
+
+
+                //lines = x.Split('\r');
+                //int[,] n = new int[47, 9];
+                //string[,] name = new string[47, 9];
+                //string[,] size = new string[47, 9];
+
+                //for (i = 0; i < lines.Length - 1; i++)
+                //{
+                //    nos = lines[i].Split('\t');
+                //    for (j = 0; j < nos.Length; j++)
+                //    {
+                //        size[i, j] = (nos[j]);
+                //        Console.Write("{0} ", size[i, j]);
+                //    }
+
+                //}
+
+
+
+
+
+                //for (i = 1; i < lines.Length - 1; i++)
+                //{
+                //    nos = lines[i].Split('\t');
+                //    for (j = 1; j < nos.Length; j++)
+                //    {
+                //        n[i, j] = Convert.ToInt32(nos[j]);
+                //        Console.Write("{0} ", n[i, j]);
+                //    }
+
+                //}
+
+                //for (i = 0; i < 1; i++)
+                //{
+                //    nos = lines[i].Split('\t');
+                //    for (j = 1; j < nos.Length; j++)
+                //    {
+                //        name[i, j] = nos[j];
+                //        Console.WriteLine(name[i, j]);
+                //    }
+
+                //}
+
+
+
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+
+namespace ConsoleApplicationTask
+{
+    class node
+    {
+        public int value;
+        public node left;
+        public node right;
+        public node(int initial)
+        {
+            value = initial;
+            left = null;
+            right = null;
+        }
+    }
+    class BST
+    {
+        node rootnode;
+        public BST()
+        {
+            rootnode = null;
+
+        }
+        public BST(int initial)
+        {
+            rootnode = new node(initial);
+
+        }
+        public void add(int value)
+        {
+            if (rootnode == null)
+            {
+
+                rootnode = new node(value);
+
+                return;
+            }
+            node CurrentNode = rootnode;
+            bool added = false;
+
+            do
+            {
+                if (CurrentNode.value > value)
+                {
+                    if (CurrentNode.left == null)
+                    {
+                        CurrentNode.left = new node(value);
+
+                        added = true;
+                    }
+                    else
+                        CurrentNode = CurrentNode.left;
+                }
+
+                if (CurrentNode.value <= value)
+                {
+                    if (CurrentNode.right == null)
+                    {
+                        CurrentNode.right = new node(value);
+
+                        added = true;
+                    }
+                    else
+                        CurrentNode = CurrentNode.right;
+                }
+            } while (!added);
+        }
+        public void AddRc(int value)
+        {
+            AddR(ref rootnode, value);
+        }
+        private void AddR(ref node N, int value)
+        {
+            if (N == null)
+            {
+                N = new node(value);
+                return;
+            }
+            if (N.value > value)
+            {
+                AddR(ref N.left, value);
+                return;
+            }
+
+            if (N.value <= value)
+            {
+                AddR(ref N.right, value);
+                return;
+            }
+        }
+        public void Search(int value)
+        {
+            if (rootnode.value == value)
+            {
+                Console.WriteLine("value = {0} found", value);
+
+                return;
+            }
+            node CurrentNode = rootnode;
+            bool added = false;
+
+            do
+            {
+                if (CurrentNode.value > value)
+                {
+                    if (CurrentNode.left.value == value)
+                    {
+                        Console.WriteLine("value = {0} found", value);
+                        added = true;
+
+                        return;
+
+                    }
+                    else
+                        CurrentNode = CurrentNode.left;
+                }
+
+                if (CurrentNode.value <= value)
+                {
+                    if (CurrentNode.right.value == value)
+                    {
+                        Console.WriteLine("value = {0} found", value);
+                        added = true;
+
+                        return;
+                    }
+                    else
+                        CurrentNode = CurrentNode.right;
+                }
+            } while (!added);
+        }
+        public void print(node N, ref string s)
+        {
+            if (N == null)
+                N = rootnode;
+            if (N.left != null)
+            {
+                print(N.left, ref s);
+
+                s = s + N.value.ToString().PadLeft(3);
+            }
+            else
+                s = s + N.value.ToString().PadLeft(3);
+            if (N.right != null)
+                print(N.left, ref s);
+        }
+    }
+    class Program
+    {
+        public static void Main()
+        {
+            string input = "";
+            BST tree = new BST();
+            tree.AddRc(7);
+            tree.AddRc(6);
+            tree.AddRc(4);
+            tree.AddRc(1);
+            tree.AddRc(9);
+            tree.AddRc(15);
+            tree.AddRc(17);
+            tree.AddRc(8);
+            tree.AddRc(12);
+            tree.AddRc(412);
+            tree.AddRc(1111);
+            tree.AddRc(989);
+            tree.AddRc(152);
+            tree.add(171);
+
+            tree.print(null, ref input);
+
+            tree.Search(412);
+            tree.Search(7);
+            tree.Search(152);
+            tree.Search(52);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+
+
+        static void Main()
+        {
+            int a1 = 0, a2 = 0, a3 = 0;
+            int[] fn = new int[11];
+            int[] fs = new int[4];
+            int[] ss = new int[7];
+            for(a1=0;a1<fs.Length;a1++)
+            {
+                Console.WriteLine("a1");
+                fs[a1] = int.Parse(Console.ReadLine());
+
+            }
+           for(a2=0;a2<ss.Length;a2++)
+           {
+               Console.WriteLine("a2");
+               ss[a2] = int.Parse(Console.ReadLine());
+           }
+           a1 = 0; a2 = 0;
+           do
+           {
+               if (fs[a1] < ss[a2])
+               {
+                   fn[a3] = fs[a1];
+                   a1++;
+                   a3++;
+               }
+               else
+               {
+                   fn[a3] = ss[a2];
+                   a2++;
+                   a3++;
+               }
+           } while (a1 < fs.Length && a2 < ss.Length);
+            if(a2==ss.Length)
+            {
+                do
+                {
+                    fn[a3] = fs[a1];
+                    a1++;
+                    a3++;
+                } while (a1 < fs.Length);
+            }
+            else
+            {
+                do
+                {
+                    fn[a3] = ss[a2];
+                    a2++;
+                    a3++;
+                } while (a2 < ss.Length);
+            }
+            for (a3 = 0;a3 <fn.Length ; a3++)
+            {
+                Console.WriteLine(fn[a3]);
+            }
+        }
+
+    }
+
+}
+
+
+
+
+using System;
+
+  
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        public static int a(int i)
+        {
+            if (i == 0)
+            {
+                return (0);
+            }
+            else if (i == 1)
+            {
+                return (1);
+            }
+            else if (i==2)
+            {
+                return (1);
+
+            }
+            else 
+            {
+                return a(i - 1) + a(i - 2);
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("n");
+            int n = int.Parse(Console.ReadLine());
+           for(int i=0;i<n;i++)
+           {
+               Console.WriteLine(a(i) + " ");
+           }
+               
+          
+            }
+            
+        }
+    }
+
+
+
+
+
+using System;
+
+
+namespace ConsoleApplication6
+{
+   
+    }
+    
+    class Program
+    {
+        static void Main()
+        {
+            int sum=0;
+            double percentage=0;
+          Calculate(399,400,100,200,100,150,230,out sum, out percentage);
+          Console.WriteLine("Sum ={0} && Percentage ={1}", sum, percentage);
+
+            
+        }
+
+       
+        public static void Calculate(int S1,int S2,int S3,int S4,int S5,int S6,int S7, out int Sum,out double Percentage)
+        {
+            Sum = S1 + S2 + S3 + S4 + S5 + S6 + S7;
+            Percentage = (Sum/1000)*100;
+        }
+
+    }
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] name = new string[3];
+
+            name[0] = "bilal";
+            name[1] = "hamza";
+            name[2] = "sajjad";
+            Metdhodparasm(name);
+
+        }
+        public static void Metdhodparasm(params string[] name)
+        {
+            Console.WriteLine(name.Length);
+            foreach (string i in name)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+

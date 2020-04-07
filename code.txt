@@ -1,0 +1,234 @@
+                       " second year"       
+
+ int a1 = 0, a2 = 0, a3 = 0;
+            int[] fn = new int[11];
+            int[] fs = new int[4];
+            int[] ss = new int[7];
+            for(a1=0;a1<fs.Length;a1++)
+            {
+                Console.WriteLine("a1");
+                fs[a1] = int.Parse(Console.ReadLine());
+
+            }
+           for(a2=0;a2<ss.Length;a2++)
+           {
+               Console.WriteLine("a2");
+               ss[a2] = int.Parse(Console.ReadLine());
+           }
+           a1 = 0; a2 = 0;
+           do
+           {
+               if (fs[a1] < ss[a2])
+               {
+                   fn[a3] = fs[a1];
+                   a1++;
+                   a3++;
+               }
+               else
+               {
+                   fn[a3] = ss[a2];
+                   a2++;
+                   a3++;
+               }
+           } while (a1 < fs.Length && a2 < ss.Length);
+            if(a2==ss.Length)
+            {
+                do
+                {
+                    fn[a3] = fs[a1];
+                    a1++;
+                    a3++;
+                } while (a1 < fs.Length);
+            }
+            else
+            {
+                do
+                {
+                    fn[a3] = ss[a2];
+                    a2++;
+                    a3++;
+                } while (a2 < ss.Length);
+            }
+            for (a3 = 0;a3 <fn.Length ; a3++)
+            {
+                Console.WriteLine(fn[a3]);
+
+            }
+
+
+                                            code 2
+
+
+
+ int a = 0, b = 0, sum = 1;
+            for (int n=0;n <=10; n++)
+            {
+                Console.WriteLine(sum);
+                b = a;
+                a = sum;
+                sum = a + b;
+                
+            }
+          
+                                       
+                           
+
+
+
+
+
+
+
+                                         code 3
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication4
+{
+    class Program
+    {
+        class bank
+        {
+            public string name;
+            protected int accountnumber;
+            private int balance;
+            public void setpropety(string n, int an, int bal)
+            {
+                name = n;
+                accountnumber = an;
+                balance = bal;
+            }
+            public void display()
+            {
+                Console.WriteLine(name +"    " +accountnumber +"   " +balance);
+            }
+            public void deposite(int amount)
+            {
+                balance += amount;
+            }
+            public void withdraw(int amount)
+            {
+                if(balance<amount)
+                {
+                    Console.WriteLine("insufficant blance");
+                }
+                else
+                {
+                    balance = balance - amount;
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            bank c1 = new bank();
+            c1.setpropety("Bilal", 1236, 2000);
+            c1.display();
+            c1.deposite(30);
+            c1.display();
+            c1.withdraw(2030);
+            c1.display();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+                                          code 4
+
+
+
+
+
+
+   int a = 0, b = 0,d=1,c=0;
+           Console.WriteLine("enter n");
+           int n = int.Parse(Console.ReadLine());
+            for (int i=0;i<n; i++)
+            {
+
+
+                a = a + b;
+                b = d;
+                d = a;
+
+                Console.WriteLine(a);
+              
+                
+            }
+          
+
+
+
+
+    
+
+
+                                         code 5
+
+
+
+
+
+
+
+
+
+
+using System;
+
+  
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        public static int a(int i)
+        {
+            if (i == 0)
+            {
+                return (0);
+            }
+            else if (i == 1)
+            {
+                return (1);
+            }
+            else if (i==2)
+            {
+                return (1);
+
+            }
+            else 
+            {
+                return a(i - 1) + a(i - 2);
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("n");
+            int n = int.Parse(Console.ReadLine());
+           for(int i=0;i<n;i++)
+           {
+               Console.WriteLine(a(i) + " ");
+           }
+               
+          
+            }
+            
+        }
+    }
+

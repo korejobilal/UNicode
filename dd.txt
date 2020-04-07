@@ -1,0 +1,306 @@
+[8:53 PM, 1/26/2020] Asfar Horney: 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication15;
+
+/**
+ *
+ * @author Azfar
+ */
+public class JavaApplication15 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        fan x= new fan();
+        System.out.println(x.toString());
+        x.TurnOn();
+          System.out.println(x.toString());
+        x.Fast();
+        System.out.println(x.toString());
+                
+        
+        
+    }
+    
+}
+
+class fan
+{
+    private final int slow =1; 
+     private final int medium = 2;
+     private final int fast=3;
+    private int speed;
+    private boolean on; 
+    private double radius;
+    private String color;
+    
+    public fan()
+    {
+        speed=slow;
+        on=false;
+        radius=5;
+        color="blue";
+    }
+    
+    public void TurnOn()
+    {
+        on=true;
+    }
+    public void Slow()
+    {
+        speed=slow;
+    }
+   
+    public void Medium()
+    {
+        speed=medium;
+    }
+    
+    public void Fast()
+    {
+        speed=fast;
+    }
+     
+    public double GetRadius()
+    {
+        return radius;
+    }
+    public void SetRadius(double r)
+    {
+        
+        this.radius=r;
+  }
+        public String GetColor()
+    {
+        return color;
+    }
+    public void SetColor(String c)
+    {
+        
+        this.color=c;
+    }
+    public String toString()
+    {
+       if (on==true)
+        { return "Speed: "+speed+" Radius: "+radius+" Color: "+color;}
+      else
+        { return "Color: "+color+" Radius: "+radius+" Status: Fan is turnedoff";}
+    
+    }
+    
+}
+[9:01 PM, 1/26/2020] Asfar Horney: /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package television;
+public class Television 
+{
+  
+        
+
+
+    public static void main(String[] args)
+    {
+        TV x = new TV();
+        x.SetChannel(12);
+        x.ChaneelDown();
+        x.turnon();
+        
+        System.out.println(x.toString());
+    }
+    
+}
+
+  class TV
+    {
+        int Channel, VolumeLevel;
+        boolean on;
+       
+        public TV()
+        {
+         Channel=1; VolumeLevel=6;
+        }
+        
+         public void turnoff()
+        {
+            on=false;
+        }
+     
+   
+        public void turnon()
+        {
+            on=true;
+        }
+        
+        public void SetChannel(int newchannel)
+        {
+            if(on==true)
+            this.Channel=newchannel;
+           
+        }
+        
+        public void SetVolume(int NewVolumeLevel)
+        {
+            if(on==true)
+            this.VolumeLevel=NewVolumeLevel;
+        }
+        
+        public void ChaneelDown()
+        {
+            if (on==true)
+            {
+            if(Channel==0)
+            Channel=120;
+            else Channel--;
+            }
+            
+        }
+        
+        public void ChaneelUp()
+        { 
+            if(on==true)
+            {
+            if(Channel==120)
+             {Channel=0;}
+            else{Channel++;}
+            }
+            
+        }
+        
+        public void VolumeUp()
+        {
+           if(on==true)
+           {
+             if(VolumeLevel==100)
+            {
+                VolumeLevel=VolumeLevel;
+            }
+            else
+            VolumeLevel++;
+           }
+        }
+        
+        public void VolumeDown()
+        {
+            if (on==true)
+            {
+           if(VolumeLevel==100)
+            {
+                VolumeLevel=VolumeLevel;
+            }
+            else
+            VolumeLevel--;
+            }
+            
+        }
+  
+        
+        @Override
+        public String toString()
+        {if (on==true)
+        return "Tv turn on: "+on+"  Channel: "+ Channel +"  Volume: " + VolumeLevel;
+        else
+           return "Tv is turned off";
+        }
+  }
+[9:09 PM, 1/26/2020] Bilal Ubit: tu ny lambhi ki hy bohut asfar
+[9:09 PM, 1/26/2020] Bilal Ubit: qasam se package javaapplication7;
+
+class TV{
+   int channel;
+    int volumelevel;
+    boolean on;
+   public void tv(){
+   
+   }
+     public void turnon(){
+     on =true;
+     }
+     public void turnoff(){
+     on =false;
+     }
+       
+    
+      public void setchannel(int newchannel){
+  if (on==true){
+          channel = newchannel;
+  }
+      }
+         public void setvolume(int newvolumelevel){
+   if (on==true){
+             volumelevel = newvolumelevel;
+   }
+   }
+           public void channelup (){
+        if (on==true){       
+   channel = channel+1;
+   if(channel ==121){
+   channel=1;
+   }}
+   }
+            public void channeldown (){
+  if (on==true){
+                channel = channel-1;
+    if(channel ==0){
+   channel=120;
+   }}
+   }
+    public void volumeup (){
+   if (on==true){
+        volumelevel = volumelevel+1;
+   if(volumelevel>7){
+   volumelevel =7;
+   }}
+    }
+      public void volumedown (){
+  if (on==true){
+          volumelevel = volumelevel-1;
+    if(volumelevel<1){
+   volumelevel =1;
+   }
+  }
+   }
+   
+    public void display(){
+    if (on==true){
+        System.out.println(channel+" "+volumelevel+" ");
+   
+    }else{
+    System.out.println("Tv is off");
+    } 
+        
+            
+   
+        }
+}
+   
+   
+public class JavaApplication7 {
+
+   
+   
+    public static void main(String[] args) {
+       
+       TV tv1 =new TV();
+     tv1.turnoff();
+       tv1.setchannel(120);
+       tv1.setvolume(1);
+       tv1.display();
+        
+        tv1.channelup();
+        
+        tv1.display();
+        tv1.channeldown();
+        tv1.volumedown();
+         tv1.display();
+      
+          tv1.display();
+    }
+    
+}

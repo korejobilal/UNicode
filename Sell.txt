@@ -1,0 +1,407 @@
+{
+    class pampers
+    {
+        public string size,name;
+        public int i, j;
+        public string[] lines;
+        public string[] nos;
+        public int[,] n = new int[47, 9];
+        public void readfile()
+        {
+            string x;
+
+            x = System.IO.File.ReadAllText(@"C:\Users\BilalAhmed\Downloads\aaxr3-wm89b.txt");
+
+            // Console.WriteLine(x);
+
+
+            lines = x.Split('\r');
+            for (i = 1; i < lines.Length - 1; i++)
+            {
+                nos = lines[i].Split('\t');
+                for (j = 1; j < nos.Length; j++)
+                {
+                    n[i, j] = Convert.ToInt32( nos[j]); 
+
+                 //    Console.Write("price", n[i,j ]);
+
+                }
+            }
+           
+        }
+
+
+    }
+    class BonaPapacotton : pampers
+    {
+
+        public void getSize(string size,string name)
+        {
+            this.size = size;
+            this.name = name;
+            if  (size == "medium")
+            {
+                Console.WriteLine("Name={0}", name);
+              Console.WriteLine("price={0}",n[7, 1]);
+              Console.WriteLine("Stock={0}",n[12, 1]);
+              int stock = n[12, 1] - 1;
+              Console.WriteLine("New Stock={0}",stock);
+
+            }
+            
+            else if (size == "small")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[6, 1]);
+                Console.WriteLine("Stock={0}", n[11, 1]);
+                int stock = n[11, 1] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "large")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[8, 1]);
+                Console.WriteLine("Stock={0}", n[13, 1]);
+                int stock = n[13, 1] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[9, 1]);
+                Console.WriteLine("Stock={0}", n[14, 1]);
+                int stock = n[14, 1] -1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xxlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                 Console.WriteLine("Not available");
+            }
+        } 
+
+    }
+    class BonaPapaplastic : pampers
+    {
+
+        public void getSize(string size, string name)
+        {
+            this.size = size;
+            this.name = name;
+            if (size == "medium")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[7, 2]);
+                Console.WriteLine("Stock={0}", n[12, 2]);
+                int stock = n[12, 2] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+
+            }
+
+            else if (size == "small")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[6, 2]);
+                Console.WriteLine("Stock={0}", n[11, 2]);
+                int stock = n[11, 2] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "large")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[8, 2]);
+                Console.WriteLine("Stock={0}", n[13, 2]);
+                int stock = n[13, 2] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[9, 2]);
+                Console.WriteLine("Stock={0}", n[14, 2]);
+                int stock = n[14, 2] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xxlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[10, 2]);
+                Console.WriteLine("Stock={0}", n[15, 2]);
+                int stock = n[15, 2] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+        }
+
+    }
+    class BonaPapaAdult : pampers
+    {
+
+        public void getSize(string size, string name)
+        {
+            this.size = size;
+            this.name = name;
+            if (size == "medium")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[7, 3]);
+                Console.WriteLine("Stock={0}", n[12, 3]);
+                int stock = n[12, 3] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+
+            }
+
+            else if (size == "small")
+            {
+                Console.WriteLine("Name={0}", name);
+               
+                Console.WriteLine("Not available");
+            }
+            else if (size == "large")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[8, 3]);
+                Console.WriteLine("Stock={0}", n[13, 3]);
+                int stock = n[13, 3] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[9, 3]);
+                Console.WriteLine("Stock={0}", n[14, 3]);
+                int stock = n[14, 3] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xxlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+               Console.WriteLine("Not available");
+            }
+        }
+
+    }
+    class Molfix : pampers
+    {
+
+        public void getSize(string size, string name)
+        {
+            this.size = size;
+            this.name = name;
+            if (size == "medium")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[6, 4]);
+                Console.WriteLine("Stock={0}", n[12, 4]);
+                int stock = n[12, 4] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+
+            }
+
+            else if (size == "small")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[7, 4]);
+                Console.WriteLine("Stock={0}", n[11, 4]);
+                int stock = n[11, 4] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "large")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[8, 4]);
+                Console.WriteLine("Stock={0}", n[13, 4]);
+                int stock = n[13, 4] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[9, 4]);
+                Console.WriteLine("Stock={0}", n[14, 4]);
+                int stock = n[14, 4] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xxlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[10, 4]);
+                Console.WriteLine("Stock={0}", n[15, 4]);
+                int stock = n[15, 4] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+        }
+
+    }
+    class Miffy : pampers
+    {
+
+        public void getSize(string size, string name)
+        {
+            this.size = size;
+            this.name = name;
+            if (size == "medium")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[7, 5]);
+                Console.WriteLine("Stock={0}", n[12, 5]);
+                int stock = n[12, 5] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+
+            }
+
+            else if (size == "small")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[6, 5]);
+                Console.WriteLine("Stock={0}", n[11, 5]);
+                int stock = n[11, 5] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "large")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[8, 5]);
+                Console.WriteLine("Stock={0}", n[13, 5]);
+                int stock = n[13, 5] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[9, 5]);
+                Console.WriteLine("Stock={0}", n[14, 5]);
+                int stock = n[14, 5] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xxlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+              Console.WriteLine("Not available");
+            }
+        }
+
+    }
+    class Happer : pampers
+    {
+
+        public void getSize(string size, string name)
+        {
+            this.size = size;
+            this.name = name;
+            if (size == "medium")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[7, 6]);
+                Console.WriteLine("Stock={0}", n[12, 6]);
+                int stock = n[12, 6] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+
+            }
+
+            else if (size == "small")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[6, 6]);
+                Console.WriteLine("Stock={0}", n[11, 6]);
+                int stock = n[11, 6] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "large")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[8, 6]);
+                Console.WriteLine("Stock={0}", n[13, 6]);
+                int stock = n[13, 6] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[9, 6]);
+                Console.WriteLine("Stock={0}", n[14, 6]);
+                int stock = n[14, 6] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xxlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[10, 6]);
+                Console.WriteLine("Stock={0}", n[15, 6]);
+                int stock = n[15, 6] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+        }
+
+    }
+    class Camra : pampers
+    {
+
+        public void getSize(string size, string name)
+        {
+            this.size = size;
+            this.name = name;
+            if (size == "medium")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[7, 7]);
+                Console.WriteLine("Stock={0}", n[12, 7]);
+                int stock = n[12, 7] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+
+            }
+
+            else if (size == "small")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[6, 7]);
+                Console.WriteLine("Stock={0}", n[11, 7]);
+                int stock = n[11, 7] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "large")
+            {
+                Console.WriteLine("Name={0}", name);
+                Console.WriteLine("price={0}", n[8, 7]);
+                Console.WriteLine("Stock={0}", n[13, 7]);
+                int stock = n[13, 7] - 1;
+                Console.WriteLine("New Stock={0}", stock);
+            }
+            else if (size == "xlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+              Console.WriteLine("Not available");
+            }
+            else if (size == "xxlarge")
+            {
+                Console.WriteLine("Name={0}", name);
+                 Console.WriteLine("Not available");
+            }
+        }
+
+    }    
+
+            
+
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                string Size, Name;
+
+               BonaPapaAdult c1 = new BonaPapaAdult();
+                c1.readfile();
+                Console.WriteLine("Size");
+                Size = Console.ReadLine();
+                Console.WriteLine("Name");
+                Name = Console.ReadLine();
+                c1.getSize(Size,Name);
+
+
+
+            }
+        }
+
+    }
+
+
